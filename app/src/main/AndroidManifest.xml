@@ -3,14 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
-
-
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 
 
-
-
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -34,10 +31,12 @@
         </activity>
         <receiver android:name=".CallReceiver" android:enabled="true" android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.READ_PHONE_STATE"/>
+                <action android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+                <action android:name="android.intent.action.PHONE_STATE"/>
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
             </intent-filter>
         </receiver>
+
     </application>
 
 </manifest>
