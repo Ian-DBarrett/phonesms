@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         telephonyManager = (TelephonyManager) getSystemService(Service.TELEPHONY_SERVICE);
 
 
-        TextView pinfo = findViewById(R.id.textView);
+        TextView pinfo = findViewById(R.id.textView3);
 
 
 
