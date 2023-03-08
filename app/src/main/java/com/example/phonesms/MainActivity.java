@@ -20,8 +20,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     TelephonyManager telephonyManager;
     private static final int REQUEST_CODE = 1;
 
@@ -36,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             super.onSignalStrengthsChanged(signalStrength);
             msigstrength = signalStrength.getGsmSignalStrength();
             msigstrength = (2 * msigstrength) - 113; // -> dBm
+            TextView text = findViewById(R.id.textView);
+            text.setText(""+msigstrength);
         }
     }
 
@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String opId = telephonyManager.getNetworkOperator();
 
-        //PhoneStateListener.LISTEN_SIGNAL_STRENGTHS = telephonyManager.getPhoneType(PhoneStateListener.LISTEN_DATA_CONNECTION_STATE)
+       // PhoneStateListener.LISTEN_SIGNAL_STRENGTHS = telephonyManager.getPhoneType(PhoneStateListener.LISTEN_DATA_CONNECTION_STATE)
 
     }
+
     public void onSignalStrengthChanged(SignalStrength str) {
-        TextView text = findViewById(R.id.textView);
-        text.setText(""+str.getCellSignalStrengths());
+
 
     }
 }
